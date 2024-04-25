@@ -12,7 +12,8 @@ class TranscationController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Transactions';
+        return view('transactions.transaction', compact('title'));
     }
 
     /**

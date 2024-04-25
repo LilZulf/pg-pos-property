@@ -20,7 +20,8 @@
                 <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="17">
             </span>
         </a>
-        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+            id="vertical-hover">
             <i class="ri-record-circle-line"></i>
         </button>
     </div>
@@ -33,43 +34,51 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarDashboards">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('dashboard.general') }}" class="nav-link" data-key="t-analytics"> General </a>
+                                <a href="{{ route('dashboard.general') }}" class="nav-link" data-key="t-analytics">
+                                    General </a>
                             </li>
                         </ul>
                     </div>
                 </li> <!-- end Dashboard Menu -->
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                {{-- <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarApps">
                         <i class="ri-apps-2-line"></i> <span data-key="t-apps">Pages</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarApps">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="#sidebarCalendar" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCalendar" data-key="t-calender">
+                                <a href="#sidebarCalendar" class="nav-link" data-bs-toggle="collapse" role="button"
+                                    aria-expanded="false" aria-controls="sidebarCalendar" data-key="t-calender">
                                     Calendar
                                 </a>
                                 <div class="collapse menu-dropdown" id="sidebarCalendar">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="apps-calendar.html" class="nav-link" data-key="t-main-calender"> Main Calender </a>
+                                            <a href="apps-calendar.html" class="nav-link" data-key="t-main-calender">
+                                                Main Calender </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="apps-calendar-month-grid.html" class="nav-link" data-key="t-month-grid"> Month Grid </a>
+                                            <a href="apps-calendar-month-grid.html" class="nav-link"
+                                                data-key="t-month-grid"> Month Grid </a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('dashboard.datatable') }}" class="nav-link" data-key="t-chat"> Datatable </a>
+                                <a href="{{ route('dashboard.datatable') }}" class="nav-link" data-key="t-chat">
+                                    Datatable </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('dashboard.search-result') }}" class="nav-link" data-key="t-chat"> Search Result </a>
+                                <a href="{{ route('dashboard.search-result') }}" class="nav-link" data-key="t-chat">
+                                    Search Result </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('dashboard.faq') }}" class="nav-link" data-key="t-chat"> FAQ </a>
@@ -79,13 +88,39 @@
                             </li>
                         </ul>
                     </div>
-                </li>
-
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sideTransaction" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sideTransaction">
+                        <i class="ri-bank-line"></i> <span data-key="t-transaction">Transaction</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sideTransaction">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('virtual-account') }}" class="nav-link" data-key="t-analytics">
+                                    <i class="ri-bank-card-2-fill"></i> <span data-key="t-virtual-account">Virtual
+                                        Account</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('virtual-account') }}" class="nav-link" data-key="t-analytics">
+                                    <i class="ri-qr-code-line"></i> <span data-key="t-virtual-account">QRIS</span> </a>
+                            </li>
+                </ul>
             </ul>
         </div>
-    </div>
+        </li>
+        </ul>
 
-    <div class="sidebar-background"></div>
+        {{-- <ul class="navbar-nav" id="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ route('transaction') }}" class="nav-link" data-key="t-analytics">
+                        <i class="ri-bank-line"></i> <span data-key="t-dashboards">Transaction</span> </a>
+                </li>
+            </ul> --}}
+    </div>
+</div>
+
+<div class="sidebar-background"></div>
 </div>
 <!-- Left Sidebar End -->
 <!-- Vertical Overlay-->
