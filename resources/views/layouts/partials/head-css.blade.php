@@ -8,3 +8,6 @@
 <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- custom Css-->
 <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+
+{{-- datatables --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.tailwindcss.css">
