@@ -89,18 +89,38 @@
                         </ul>
                     </div>
                 </li> --}}
-
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sideTransaction" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sideTransaction">
+                        <i class="ri-bank-line"></i> <span data-key="t-transaction">Transaction</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sideTransaction">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('virtual-account') }}" class="nav-link" data-key="t-analytics">
+                                    <i class="ri-bank-card-2-fill"></i> <span data-key="t-virtual-account">Virtual
+                                        Account</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('virtual-account') }}" class="nav-link" data-key="t-analytics">
+                                    <i class="ri-qr-code-line"></i> <span data-key="t-virtual-account">QRIS</span> </a>
+                            </li>
+                </ul>
             </ul>
-            <ul class="navbar-nav" id="navbar-nav">
+        </div>
+        </li>
+        </ul>
+
+        {{-- <ul class="navbar-nav" id="navbar-nav">
                 <li class="nav-item">
                     <a href="{{ route('transaction') }}" class="nav-link" data-key="t-analytics">
                         <i class="ri-bank-line"></i> <span data-key="t-dashboards">Transaction</span> </a>
                 </li>
-            </ul>
-        </div>
+            </ul> --}}
     </div>
+</div>
 
-    <div class="sidebar-background"></div>
+<div class="sidebar-background"></div>
 </div>
 <!-- Left Sidebar End -->
 <!-- Vertical Overlay-->

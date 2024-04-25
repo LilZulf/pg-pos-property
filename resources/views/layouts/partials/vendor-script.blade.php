@@ -14,5 +14,5 @@
     //         // Add any customization options here
     //     });
     // });
-    new DataTable('#example');
+    new DataTable('#virtual-account');
 </script>

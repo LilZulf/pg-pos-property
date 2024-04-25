@@ -30,6 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/dashboard/transaction', [TranscationController::class, 'index'])->name('transaction');
+Route::get('/transaction/virtual', [TranscationController::class, 'index'])->name('virtual-account');
 
 require __DIR__.'/auth.php';
