@@ -9,7 +9,11 @@ use App\Models\Transaction;
 class TransactionTable extends Component
 {
     use WithPagination;
+
+
+    #[Url(history:true)]
     public $perPage = 3;
+    #[Url(history:true)]
     public $search = '';
     public function render()
     {
