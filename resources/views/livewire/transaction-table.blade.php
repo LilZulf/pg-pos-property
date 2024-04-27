@@ -1,8 +1,8 @@
 <div>
     <section class="mt-10">
-        <div class="mx-auto max-w-screen-xl px-4 lg:px-12 ">
+        <div class="mx-auto px-4 lg:px-12 ">
             <!-- Start coding here -->
-            <div class="bg-white  relative shadow-md sm:rounded-lg overflow-hidden">
+            <div class="bg-white  relative shadow-md sm:rounded-lg">
                 <div class="flex items-center justify-between d p-4">
                     <div class="flex">
                         <div class="relative w-full">
@@ -14,7 +14,9 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </div> --}}
-                            <input type="text"
+                            <input 
+                                wire:model.live.debounce.300ms="search"
+                                type="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 "
                                 placeholder="Search" required="">
                         </div>
