@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('transcations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->date('date');
+            $table->integer('orderID');
+            $table->string('type');
+            $table->string('channel');
+            $table->string('amount');
+            $table->string('email');
+            // $table->timestamps();
         });
     }
 

@@ -11,3 +11,5 @@
 
 {{-- datatables --}}
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.tailwindcss.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
