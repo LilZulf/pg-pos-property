@@ -40,7 +40,8 @@
 @section('content')
     <x-card :title="$title">
         <x-slot name="content">
-            <x-dataTable :costumers="$costumers"></x-dataTable>
+            {{-- <x-dataTable :costumers="$costumers"></x-dataTable> --}}
+            <livewire:transaction-table />
         </x-slot>
     </x-card>
 @endsection
