@@ -21,6 +21,8 @@ class TranscationController extends Controller
      */
     public function create()
     {
+        $title = 'Create';
+        return view('transactions.create-transaction', compact('title'));
         //
     }
 
