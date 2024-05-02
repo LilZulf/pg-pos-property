@@ -31,5 +31,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/transaction/virtual', [TranscationController::class, 'index'])->name('virtual-account');
+Route::get('/transaction/virtual/create-transaction', [TranscationController::class, 'create'])->name('transaction.create');
 
 require __DIR__.'/auth.php';
