@@ -9,12 +9,11 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $table = 'transactions';
-    protected $fillable = ['date','orderID','type','channel','amount','email'];
+    protected $fillable = ['id', 'ref', 'status', 'amount', 'user_id', 'transaction_method_id'];
     public $incrementing = true;
-    public $timestamps = false;
-
-    public function scopeSearch($query, $search){
-        $query->where('email', 'like', "%{$search}%")->orWhere('orderID', 'like', "%{$search}%")
-        ->orWhere('amount', 'like', "%{$search}%")->orWhere('status', 'like', "%{$search}%");
+    public function scopeSearch($query, $search)
+    {
+        $query->where('status', 'like', "%{$search}%")->orWhere('ref', 'like', "%{$search}%")
+            ->orWhere('id', 'like', "%{$search}%")->orWhere('transaction_method_id', 'like', "%{$search}%");
     }
 }

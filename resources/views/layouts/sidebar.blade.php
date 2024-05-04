@@ -47,7 +47,7 @@
                         </ul>
                     </div>
                 </li> <!-- end Dashboard Menu -->
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarApps">
                         <i class="ri-apps-2-line"></i> <span data-key="t-apps">Pages</span>
@@ -88,7 +88,7 @@
                             </li>
                         </ul>
                     </div>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sideTransaction" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sideTransaction">
@@ -103,24 +103,17 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('virtual-account') }}" class="nav-link" data-key="t-analytics">
-                                    <i class="ri-qr-code-line"></i> <span data-key="t-virtual-account">QRIS</span> </a>
+                                    <i class="ri-qr-code-line"></i> <span data-key="t-virtual-account">QRIS</span>
+                                </a>
                             </li>
-                </ul>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
-        </li>
-        </ul>
-
-        {{-- <ul class="navbar-nav" id="navbar-nav">
-                <li class="nav-item">
-                    <a href="{{ route('transaction') }}" class="nav-link" data-key="t-analytics">
-                        <i class="ri-bank-line"></i> <span data-key="t-dashboards">Transaction</span> </a>
-                </li>
-            </ul> --}}
     </div>
-</div>
 
-<div class="sidebar-background"></div>
+    <div class="sidebar-background"></div>
 </div>
 <!-- Left Sidebar End -->
 <!-- Vertical Overlay-->

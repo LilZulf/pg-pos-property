@@ -1,12 +1,14 @@
 @include('layouts.partials.main')
 
+
 <head>
     @include('layouts.partials.title-meta', ['title' => $title])
     @include('layouts.partials.head-css')
+
 </head>
 
 <body>
-
+    @include('sweetalert::alert')
     <!-- Begin page -->
     <div id="layout-wrapper">
         @include('layouts.navbar')
