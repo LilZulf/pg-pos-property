@@ -29,6 +29,7 @@
     @include('layouts.partials.vendor-script')
 
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    @yield('script')
 
 </body>
 
