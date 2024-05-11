@@ -1,7 +1,7 @@
 @include('layouts.partials.main')
 
 <head>
-    @include('layouts.partials.title-meta', ['title' => 'Sign In'])
+    @include('layouts.partials.title-meta', ['title' => $title])
     @include('layouts.partials.head-css')
 </head>
 

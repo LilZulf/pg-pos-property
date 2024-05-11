@@ -16,7 +16,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.new-login');
+        return view('auth.new-login', [
+            'title' => 'Login'
+        ]);
     }
 
     /**
@@ -28,7 +30,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('dashboard.general', absolute: false));
     }
 
     /**

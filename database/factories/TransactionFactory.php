@@ -18,11 +18,11 @@ class TransactionFactory extends Factory
     {
         return [
             //
-            'ref' => 'REF' . fake()->unique()->numberBetween(100, 999),
+            'ref' => 'REF' . fake()->unique()->numberBetween(1, 999),
             'status' => fake()->randomElement(['pending', 'completed', 'failed']),
-            'amount' => fake()->randomFloat(2, 10, 1000),
-            'user_id' => fake()->numberBetween(1, 10), // Assuming there are 10 users
-            'transaction_method_id' => fake()->numberBetween(1, 5), // Assuming there are 5 transaction methods
+            'amount' => fake()->numberBetween(10, 1000) * 1000,
+            'user_id' => fake()->numberBetween(1, 10),
+            'transaction_method_id' => fake()->numberBetween(1, 2),
             'meta' => json_encode(['note' => fake()->sentence]),
             'created_at' => fake()->dateTimeBetween('-1 year', 'now'),
             'updated_at' => fake()->dateTimeBetween('-1 year', 'now'),
