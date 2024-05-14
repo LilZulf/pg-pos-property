@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('source', 50);
             $table->text('payload');
             $table->text('result');
-            $table->bigInteger('transaction_id');
+            $table->unsignedBigInteger('transaction_id');
             $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
             $table->timestamps();
         });

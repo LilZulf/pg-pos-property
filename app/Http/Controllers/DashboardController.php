@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
-
 class DashboardController extends Controller
 {
     /**
@@ -32,26 +31,33 @@ class DashboardController extends Controller
         // ambil transaksi terakhir
         $latest_transactions = $transactions->latest()->take(5)->get();
 
-        // 
+        //
         $total_transactions = $filtered_transactions->count();
         $completed = $filtered_transactions->where('status', 'completed')->count();
+        $completed_amount = $filtered_transactions->where('status', 'completed')->sum('amount');
         $failed = $filtered_transactions->where('status', 'failed')->count();
         $pending = $filtered_transactions->where('status', 'pending')->count();
 
-        // 
-        $va = $filtered_transactions->where('transaction_method_id', 2)->count();
-        $qris = $filtered_transactions->where('transaction_method_id', 1)->count();
+        //
+ 
+        $va_amount = $filtered_transactions->where('transaction_method_id', 2)
+            ->where('status', 'completed')
+            ->sum('amount');
+
+        $qris_amount = $filtered_transactions->where('transaction_method_id', 1)
+            ->where('status', 'completed')
+            ->sum('amount');
 
         $title = 'General Dashboard';
         $now = $request->has('date_range') ? $request->input('date_range') : date('d M Y');
 
-
         $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'];
-
 
         $pending_data = [];
         $failed_data = [];
         $completed_data = [];
+        $va_amount = [];
+        $qris_amount = [];
 
         foreach ($months as $month) {
             $pending_data[] = $filtered_transactions->where('status', 'pending')->filter(function ($transaction) use ($month) {
@@ -65,6 +71,22 @@ class DashboardController extends Controller
             $completed_data[] = $filtered_transactions->where('status', 'completed')->filter(function ($transaction) use ($month) {
                 return date('M', strtotime($transaction->created_at)) === $month;
             })->count();
+
+            //transaksi method
+            $va_amount[] = $filtered_transactions->where('transaction_method_id', 2)
+                ->where('status', 'completed')
+                ->filter(function ($transaction) use ($month) {
+                    return date('M', strtotime($transaction->created_at)) === $month;
+                })
+                ->sum('amount');
+
+            $qris_amount[] = $filtered_transactions->where('transaction_method_id', 1)
+                ->where('status', 'completed')
+                ->filter(function ($transaction) use ($month) {
+                    return date('M', strtotime($transaction->created_at)) === $month;
+                })
+                ->sum('amount');
+
         }
 
         return view(
@@ -74,15 +96,16 @@ class DashboardController extends Controller
                 'filtered_transactions',
                 'total_transactions',
                 'completed',
+                'completed_amount',
                 'failed',
                 'pending',
                 'now',
                 'pending_data',
                 'failed_data',
                 'completed_data',
+                'va_amount',
+                'qris_amount',
                 'months',
-                'va',
-                'qris',
                 'latest_transactions'
             )
         );
