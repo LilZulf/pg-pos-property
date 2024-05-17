@@ -21,27 +21,46 @@
                                     <h4 class="fs-16 mb-1">Good Morning, Admin!</h4>
                                     <p class="text-muted mb-0">Here's what's happening with your store today.</p>
                                 </div>
-                                <div class="mt-3 mt-lg-0">
-                                    <form action="{{ route('dashboard.general') }}" method="GET" id="filter-form">
-                                        <div class="row g-3 mb-0 align-items-center">
-                                            <div class="col-sm-auto">
-                                                <div class="input-group">
-                                                    <input type="text"
-                                                        class="form-control border-0 minimal-border dash-filter-picker shadow flatpickr-input"
-                                                        data-provider="flatpickr" data-range-date="true"
-                                                        data-date-format="d M, Y" data-default-date="{{ $now }}"
-                                                        name="date_range" readonly="readonly">
-                                                    <div class="input-group-text bg-primary border-primary text-white">
-                                                        <i class="ri-calendar-2-line"></i>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <div class="mt-3 mt-lg-0">
+                                        <div class="btn-group material-shadow">
+                                            <button type="button" class="btn btn-danger material-shadow-none">Filter by
+                                                Date Range</button>
+                                            <button type="button"
+                                                class="btn btn-danger material-shadow-none dropdown-toggle dropdown-toggle-split"
+                                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false"></button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Today</a>
+                                                <a class="dropdown-item" href="#">Last Weak</a>
+                                                <a class="dropdown-item" href="#">Last Month</a>
+                                                <a class="dropdown-item" href="#">Last Year</a>
+                                            </div>
+                                        </div><!-- /btn-group -->
+                                    </div>
+                                    <div class="mt-3 mt-lg-0">
+                                        <form action="{{ route('dashboard.general') }}" method="GET" id="filter-form">
+                                            <div class="row g-3 mb-0 align-items-center">
+                                                <div class="col-sm-auto">
+                                                    <div class="input-group">
+                                                        <input type="text"
+                                                            class="form-control border-0 minimal-border dash-filter-picker shadow flatpickr-input"
+                                                            data-provider="flatpickr" data-range-date="true"
+                                                            data-date-format="d M, Y"
+                                                            data-default-date="{{ $now }}" name="date_range"
+                                                            readonly="readonly">
+                                                        <div class="input-group-text bg-primary border-primary text-white">
+                                                            <i class="ri-calendar-2-line"></i>
+                                                        </div>
+                                                        <a type="button" href="{{ route('dashboard.general') }}"
+                                                            class="btn btn-danger" id="reset-date"><i
+                                                                class="ri-delete-bin-6-line"></i></a>
                                                     </div>
-                                                    <a type="button" href="{{ route('dashboard.general') }}"
-                                                        class="btn btn-danger" id="reset-date"><i
-                                                            class="ri-delete-bin-6-line"></i></a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
 
+                                    </div>
                                 </div>
                             </div><!-- end card header -->
                         </div>
@@ -49,6 +68,38 @@
                     </div>
                     <!--end row-->
                     <div class="row">
+                        <div class="col-xl-3 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Transaction
+                                                Completed</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            {{-- <h5 class="text-success fs-14 mb-0">
+                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +3.57 %
+                                            </h5> --}}
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">Rp <span class="counter-value"
+                                                    data-target="{{ $completed_amount }}">{{ $completed_amount }}</span>
+                                            </h4>
+                                            <a href="" class="text-decoration-underline">View transactions
+                                                completed</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i class=" ri-checkbox-circle-fill text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
                         <div class="col-xl-3 col-md-6">
                             <!-- card -->
                             <div class="card card-animate">
@@ -87,37 +138,6 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Transaction
-                                                Completed</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            {{-- <h5 class="text-success fs-14 mb-0">
-                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +3.57 %
-                                            </h5> --}}
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
-                                                    data-target="{{ $completed }}">{{ $completed }}</span></h4>
-                                            <a href="" class="text-decoration-underline">View transactions
-                                                completed</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class=" ri-checkbox-circle-fill text-info"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
                                             <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Transactions
                                                 Failed</p>
                                         </div>
@@ -131,7 +151,8 @@
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value"
                                                     data-target="{{ $failed }}">{{ $failed }}</span></h4>
-                                            <a href="" class="text-decoration-underline">View transactions failed</a>
+                                            <a href="" class="text-decoration-underline">View transactions
+                                                failed</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-warning-subtle rounded fs-3">
@@ -228,7 +249,7 @@
                             <div class="row">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title mb-0">Transactions by Method</h4>
+                                        <h4 class="card-title mb-0">Transactions by Status</h4>
                                     </div>
                                     <div class="card-body">
                                         <div id="donut-chart" style="width: 100%; height: 100%;"></div>
@@ -275,17 +296,16 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Fungsi untuk membuat animasi perubahan nilai dari 0 ke target
             function animateValue(obj, start, end, duration) {
                 var range = end - start;
                 var current = start;
                 var increment = end > start ? 1 : -1;
                 var stepTime = Math.abs(Math.floor(duration / range));
+
                 var timer = setInterval(function() {
                     current += increment;
-                    obj.textContent = current
-                        .toLocaleString(); // Menggunakan toLocaleString() untuk memformat angka dengan tanda baca ribuan
-                    if (current == end) {
+                    obj.textContent = current.toLocaleString();
+                    if ((increment === 1 && current >= end) || (increment === -1 && current <= end)) {
                         clearInterval(timer);
                     }
                 }, stepTime);
@@ -300,7 +320,12 @@
                 // Mendapatkan nilai akhir dari elemen
                 var endValue = parseInt(elements[i].getAttribute("data-target"));
                 if (endValue !== 0) {
-                    animateValue(elements[i], startValue, endValue, duration);
+                    // Tambahkan kondisi untuk menentukan nilai awal
+                    var start = 0;
+                    if (endValue > 1000) {
+                        start = endValue - 50;
+                    }
+                    animateValue(elements[i], start, endValue, duration);
                 }
             }
         });
@@ -314,16 +339,12 @@
                     height: 450
                 },
                 series: [{
-                        name: 'pending',
-                        data: {{ json_encode($pending_data) }} // Menggunakan data pending dari controller
+                        name: 'Qris',
+                        data: {{ json_encode($qris_amount) }} // Menggunakan data pending dari controller
                     },
                     {
-                        name: 'failed',
-                        data: {{ json_encode($failed_data) }} // Menggunakan data failed dari controller
-                    },
-                    {
-                        name: 'success',
-                        data: {{ json_encode($completed_data) }} // Menggunakan data success dari controller
+                        name: 'Virtual Account',
+                        data: {{ json_encode($va_amount) }} // Menggunakan data success dari controller
                     }
                 ],
                 xaxis: {
@@ -360,11 +381,12 @@
             };
 
             var donut = {
-                series: [{{ $qris }}, {{ $va }}],
+                series: [{{ $failed }}, {{ $completed }}],
                 chart: {
                     type: 'donut',
                 },
-                labels: ['Qris', 'Virtual Account'],
+                labels: ['Failled', 'Success'],
+                colors: ['#F06548', '#0AB39C'],
                 responsive: [{
                     breakpoint: 480,
                     options: {
@@ -375,8 +397,20 @@
                             position: 'bottom'
                         }
                     }
-                }]
+                }],
+                dataLabels: {
+                    enabled: true,
+                    formatter: function(val, opts) {
+                        return opts.w.globals.series[opts.seriesIndex];
+                    },
+                    offsetY: -10,
+                    style: {
+                        fontSize: '12px',
+                        colors: ["#304758"]
+                    }
+                }
             };
+
 
             var donutDom = document.getElementById('donut-chart');
             var donutChart = new ApexCharts(donutDom, donut);

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('ref', 100);
             $table->string('status', 15);
             $table->double('amount');
-            $table->bigInteger('user_id');
-            $table->bigInteger('transaction_method_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('transaction_method_id');
             $table->longText('meta')->nullable();
             $table->timestamps();
             $table->timestamp('expired_at')->nullable();
